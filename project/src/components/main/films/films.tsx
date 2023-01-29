@@ -1,11 +1,12 @@
+import { FilmTitle } from '../../../const';
 import { films } from '../../../mock/films';
 import FilmsList from './films-list/films-list';
 
-const Films: React.FC = () => (
+const Films: React.FC = (): JSX.Element => (
   <section className="films">
-    <FilmsList films={films}/>
+    <FilmsList films={films} filmsTitle={FilmTitle.All}/>
 
-    <section className="films-list--extra">
+    {/* <section className="films-list--extra">
       <h2 className="films-list__title">Top rated</h2>
 
       <div className="films-list__container">
@@ -87,7 +88,7 @@ const Films: React.FC = () => (
           </form>
         </article>
       </div>
-    </section>
+    </section> */}
   </section>
 );
 

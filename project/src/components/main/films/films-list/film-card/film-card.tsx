@@ -1,11 +1,11 @@
+import React from 'react';
 import { Film } from '../../../../../types/film';
 
 type FilmCardProps = {
   film: Film;
 }
 
-const FilmCard: React.FC<FilmCardProps> = (props) => {
-  const { film } = props;
+const FilmCard: React.FC<FilmCardProps> = ({film}): JSX.Element => {
   const { title, rating, year, duration, genre, poster, description, comments } = film;
 
   return (

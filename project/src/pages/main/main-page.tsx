@@ -2,7 +2,7 @@ import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
 import Main from '../../components/main/main';
 
-const MainPage: React.FC = () => (
+const MainPage: React.FC = (): JSX.Element => (
   <>
     <Header />
     <Main />
