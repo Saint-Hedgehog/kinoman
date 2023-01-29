@@ -9,3 +9,5 @@ export type Film = {
   description: string;
   comments: number;
 };
+
+export type Films = Film[];

@@ -1,8 +1,9 @@
+import { films } from '../../../mock/films';
 import FilmsList from './films-list/films-list';
 
 const Films: React.FC = () => (
   <section className="films">
-    <FilmsList />
+    <FilmsList films={films}/>
 
     <section className="films-list--extra">
       <h2 className="films-list__title">Top rated</h2>
