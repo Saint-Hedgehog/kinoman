@@ -8,3 +8,8 @@ export enum FilmTitle {
   Rated = 'Top rated',
   Commented = 'Most commented'
 }
+
+export enum FilmsClass {
+ FilmList = 'films-list',
+ FilmListExtra = 'films-list--extra'
+}

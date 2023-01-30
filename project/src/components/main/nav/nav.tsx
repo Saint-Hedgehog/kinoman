@@ -1,4 +1,4 @@
-const Nav: React.FC = () => (
+const Nav: React.FC = (): JSX.Element => (
   <nav className="main-navigation">
     <div className="main-navigation__items">
       <a href="#all" className="main-navigation__item main-navigation__item--active">All movies</a>

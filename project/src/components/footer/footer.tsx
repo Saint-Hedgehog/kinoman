@@ -1,4 +1,4 @@
-const Footer: React.FC = () => (
+const Footer: React.FC = (): JSX.Element => (
   <footer className="footer">
     <section className="footer__logo logo logo--smaller">Cinemaddict</section>
     <section className="footer__statistics">
