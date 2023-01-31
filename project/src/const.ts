@@ -6,7 +6,8 @@ export enum AppRoute {
 export enum FilmTitle {
   All = 'All movies. Upcoming',
   Rated = 'Top rated',
-  Commented = 'Most commented'
+  Commented = 'Most commented',
+  Loading = 'Loading...'
 }
 
 export enum FilmsClass {
