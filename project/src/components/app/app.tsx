@@ -1,8 +1,7 @@
-// import MainPage from '../../pages/main/main-page';
-import StatisticPage from '../../pages/statistic/statistic-page';
+import MainPage from '../../pages/main/main-page';
 
 const App: React.FC = (): JSX.Element => (
-  <StatisticPage />
+  <MainPage />
 );
 
 export default App;

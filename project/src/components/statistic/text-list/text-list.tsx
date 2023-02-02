@@ -12,8 +12,7 @@ const TextList: React.FC = (): JSX.Element => (
             {textItem.description2 && <span className="statistic__item-description">{textItem.description2}</span>}
           </p>
         </li>
-      )
-      )
+      ))
     }
   </ul>
 );

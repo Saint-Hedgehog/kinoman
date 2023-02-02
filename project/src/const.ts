@@ -1,3 +1,8 @@
+export const FILM_CARD_COUNT_ON_PAGE = 5;
+export const FILM_FILTRED_BY_RATING = 2;
+export const FILM_FILTRED_BY_COMMENT = 2;
+export const ZERO = 0;
+
 export enum AppRoute {
   Main = '/',
   NotFound = '*',
