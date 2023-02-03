@@ -1,0 +1,13 @@
+.header > a,
+.footer > a {
+  color: #fff;
+}
+
+.header > a h1,
+.footer > a h1 {
+  cursor: pointer;
+}
+
+.footer > a {
+  margin-right: auto;
+}

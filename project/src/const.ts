@@ -5,7 +5,7 @@ export const ZERO = 0;
 
 export enum AppRoute {
   Main = '/',
-  Stats = 'stats',
+  Stats = '/stats',
   NotFound = '*',
 }
 
@@ -20,3 +20,8 @@ export enum FilmsClass {
  FilmList = 'films-list',
  FilmListExtra = 'films-list--extra'
 }
+
+export const LinkParameter = {
+  Disabled: 'none',
+  Active: 'auto'
+} as const;

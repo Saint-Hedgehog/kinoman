@@ -18,7 +18,7 @@ const FilmList: React.FC<FilmListProps> = ({ films, filmsTitle, filmsClass, rati
   const sectionClass = classNames({ 'films-list': isFilmsClassStyle, 'films-list--extra': isFilmsExtraClassStyle });
   const titleClass = classNames('films-list__title', { 'visually-hidden': isFilmsClassStyle });
 
-  const [showFilmsCount, setShowFilmsCount] = useState(FILM_CARD_COUNT_ON_PAGE);
+  const [showFilmsCount, setShowFilmsCount] = useState<number>(FILM_CARD_COUNT_ON_PAGE);
 
   const filmList = films.slice(ZERO, showFilmsCount);
 

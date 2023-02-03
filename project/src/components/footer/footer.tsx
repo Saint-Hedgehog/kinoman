@@ -1,6 +1,9 @@
+import Logo from '../header/logo/logo';
+
 const Footer: React.FC = (): JSX.Element => (
   <footer className="footer">
-    <section className="footer__logo logo logo--smaller">Cinemaddict</section>
+    <Logo isFooter/>
+
     <section className="footer__statistics">
       <p>130 291 movies inside</p>
     </section>
