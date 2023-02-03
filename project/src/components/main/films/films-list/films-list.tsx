@@ -57,7 +57,7 @@ const FilmList: React.FC<FilmListProps> = ({ films, filmsTitle, filmsClass, rati
         }
       </div>
       {
-        isFilmsClassStyle && !(films.length - showFilmsCount < 0) &&
+        isFilmsClassStyle && !(films.length - showFilmsCount <= 0) &&
         (<button className="films-list__show-more" onClick={handleShowMoreCLick}>Show more</button>)
       }
     </section>

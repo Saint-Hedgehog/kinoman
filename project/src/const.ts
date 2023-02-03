@@ -5,6 +5,7 @@ export const ZERO = 0;
 
 export enum AppRoute {
   Main = '/',
+  Stats = 'stats',
   NotFound = '*',
 }
 

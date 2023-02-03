@@ -1,0 +1,9 @@
+.not-found h1 {
+  text-align: center;
+}
+
+.not-found a {
+  display: block;
+  text-align: center;
+  color: var(--text-color-active)
+}
