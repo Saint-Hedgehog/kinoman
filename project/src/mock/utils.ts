@@ -1,4 +1,6 @@
-import { DEFAULT_DAYS_OFFSET, DEFAULT_MONTHS_OFFSET, DEFAULT_YEARS_OFFSET, DESC_LENGTH, SENTENCES } from './const';
+import { DEFAULT_DAYS_OFFSET, DEFAULT_MONTHS_OFFSET, DEFAULT_YEARS_OFFSET, DESC_LENGTH, EMOJIS, MAX_COMMENT, MAX_DURATION, MAX_GENRES, MAX_RATING, MIN_DURATION, MIN_GENRES, NAMES, RANDOM_COMMENTS_DATE_PARAMS, SENTENCES } from './const';
+
+const randomQuantity = (min: number, max:number) => Math.floor(min + Math.random() * (max + 1 - min));
 
 export const getRandomID = (): string => String(new Date()) + String(Math.random());
 
@@ -7,7 +9,7 @@ export const getRandomItem = (list: string[]): string => list[Math.floor(Math.ra
 export const getDesc = () => {
   const min = 1;
   const max = SENTENCES.length - 1;
-  const quantity = Math.floor(Math.random() * max) + min;
+  const quantity = randomQuantity(min, max);
   let desc = '';
 
   for (let i = 0; i < quantity; i++) {
@@ -30,8 +32,9 @@ export const getShortDesc = (desc: string) => {
   return `${desc}...`;
 };
 
-export const getRandomList = (list: string[], min: number, max: number) => {
-  const quantity = Math.floor(Math.random() * (max - min)) + min;
+export const getRandomList = (list: string[]) => {
+
+  const quantity = randomQuantity(MIN_GENRES, MAX_GENRES);
   const newList = new Set();
 
   while (newList.size < quantity) {
@@ -43,16 +46,7 @@ export const getRandomList = (list: string[], min: number, max: number) => {
 
 const getRandomNum = (max: number): number => Math.floor(Math.random() * max);
 
-// type dateProps = {
-//   yearsOffset: number;
-//   monthsOffset: number;
-//   daysOffset: number;
-// }
-
-export const getRandomDate = () => {
-  // const { yearsOffset = DEFAULT_YEARS_OFFSET,
-  //   monthsOffset = DEFAULT_MONTHS_OFFSET,
-  //   daysOffset = DEFAULT_DAYS_OFFSET } = params;
+export const getRandomDate = (params = {}): Date => {
   const yearsOffset = DEFAULT_YEARS_OFFSET;
   const monthsOffset = DEFAULT_MONTHS_OFFSET;
   const daysOffset = DEFAULT_DAYS_OFFSET;
@@ -63,4 +57,35 @@ export const getRandomDate = () => {
   now.setFullYear(now.getFullYear() - getRandomNum(yearsOffset));
 
   return now;
+};
+
+export const getRandomDuration = () => Math.floor(MIN_DURATION + Math.random() * (MAX_DURATION + 1 - MIN_DURATION));
+
+export const getRandomRating = () => {
+  const rating = Math.random() * MAX_RATING;
+
+  return +rating.toFixed(1);
+};
+
+export const getRandomComments = () => {
+  const quantity = Math.floor(Math.random() * MAX_COMMENT);
+  const list = [];
+
+  for (let i = 0; i < quantity; i++) {
+    const id = getRandomID();
+    const author = getRandomItem(NAMES);
+    const text = getRandomItem(SENTENCES);
+    const date = getRandomDate(RANDOM_COMMENTS_DATE_PARAMS);
+    const emoji = getRandomItem(EMOJIS);
+
+    list.push({
+      id,
+      author,
+      text,
+      emoji,
+      date,
+    });
+  }
+
+  return list;
 };

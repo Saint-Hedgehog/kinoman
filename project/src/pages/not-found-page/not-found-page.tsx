@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
 import { POSTERS, TITLES, GENRES } from '../../mock/const';
-import { getRandomID, getRandomItem, getDesc, getShortDesc, getRandomList, getRandomDate } from '../../mock/utils';
+import { getRandomID, getRandomItem, getDesc, getShortDesc, getRandomList, getRandomDate, getRandomDuration, getRandomRating, getRandomComments } from '../../mock/utils';
 import './style.css';
 
 const NotFoundPage: React.FC = (): JSX.Element => {
@@ -13,11 +13,14 @@ const NotFoundPage: React.FC = (): JSX.Element => {
   const origTitle = getRandomItem(TITLES);
   const desc = getDesc();
   const shortDesc = getShortDesc(desc);
-  const genres = getRandomList(GENRES, 1, 3);
+  const genres = getRandomList(GENRES);
   const releaseDate = getRandomDate();
+  const runtime = getRandomDuration();
+  const rating = getRandomRating();
+  const comments = getRandomComments();
 
-  console.log(releaseDate);
 
+  console.log(runtime);
 
   return (
     <main className="main">
