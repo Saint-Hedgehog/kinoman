@@ -1,15 +1,42 @@
-import { DEFAULT_DAYS_OFFSET, DEFAULT_MONTHS_OFFSET, DEFAULT_YEARS_OFFSET, DESC_LENGTH, EMOJIS, MAX_COMMENT, MAX_DURATION, MAX_GENRES, MAX_RATING, MIN_DURATION, MIN_GENRES, NAMES, RANDOM_COMMENTS_DATE_PARAMS, SENTENCES } from './const';
+import { Data } from '../types/data';
+import {
+  AGE_RATINGS,
+  COUNTRIES,
+  DEFAULT_DAYS_OFFSET,
+  DEFAULT_MONTHS_OFFSET,
+  DEFAULT_YEARS_OFFSET,
+  DESC_LENGTH,
+  EMOJIS,
+  GENRES,
+  MAX_ACTORS_NAMES,
+  MAX_COMMENT,
+  MAX_DURATION,
+  MAX_GENRES,
+  MAX_RATING,
+  MAX_WRITERS_NAMES,
+  MIN_ACTORS_NAMES,
+  MIN_DURATION,
+  MIN_GENRES,
+  MIN_WRITERS_NAMES,
+  NAMES,
+  POSTERS,
+  RANDOM_COMMENTS_DATE_PARAMS,
+  SENTENCES,
+  TITLES,
+  WATCHED_RANDOM_DATE_PARAMS
+} from './const';
 
-const randomQuantity = (min: number, max:number) => Math.floor(min + Math.random() * (max + 1 - min));
+const getRandomNum = (max: number): number => Math.floor(Math.random() * max);
+const getRandomQuantity = (min: number, max: number): number => Math.floor(min + Math.random() * (max + 1 - min));
 
-export const getRandomID = (): string => String(new Date()) + String(Math.random());
+const getRandomID = (): string => String(new Date()) + String(Math.random());
 
-export const getRandomItem = (list: string[]): string => list[Math.floor(Math.random() * list.length)];
+const getRandomItem = (list: string[]): string => list[Math.floor(Math.random() * list.length)];
 
-export const getDesc = () => {
+const getDesc = (): string => {
   const min = 1;
   const max = SENTENCES.length - 1;
-  const quantity = randomQuantity(min, max);
+  const quantity = getRandomQuantity(min, max);
   let desc = '';
 
   for (let i = 0; i < quantity; i++) {
@@ -19,7 +46,7 @@ export const getDesc = () => {
   return desc;
 };
 
-export const getShortDesc = (desc: string) => {
+const getShortDesc = (desc: string): string => {
   if (desc.length <= DESC_LENGTH) {
     return desc;
   }
@@ -32,10 +59,10 @@ export const getShortDesc = (desc: string) => {
   return `${desc}...`;
 };
 
-export const getRandomList = (list: string[]) => {
+const getRandomList = (list: string[], min: number, max: number): string[] => {
 
-  const quantity = randomQuantity(MIN_GENRES, MAX_GENRES);
-  const newList = new Set();
+  const quantity = getRandomQuantity(min, max);
+  const newList = new Set<string>();
 
   while (newList.size < quantity) {
     newList.add(getRandomItem(list));
@@ -44,9 +71,7 @@ export const getRandomList = (list: string[]) => {
   return Array.from(newList);
 };
 
-const getRandomNum = (max: number): number => Math.floor(Math.random() * max);
-
-export const getRandomDate = (params = {}): Date => {
+const getRandomDate = (params = {}): Date => {
   const yearsOffset = DEFAULT_YEARS_OFFSET;
   const monthsOffset = DEFAULT_MONTHS_OFFSET;
   const daysOffset = DEFAULT_DAYS_OFFSET;
@@ -59,15 +84,13 @@ export const getRandomDate = (params = {}): Date => {
   return now;
 };
 
-export const getRandomDuration = () => Math.floor(MIN_DURATION + Math.random() * (MAX_DURATION + 1 - MIN_DURATION));
-
-export const getRandomRating = () => {
+const getRandomRating = () => {
   const rating = Math.random() * MAX_RATING;
 
   return +rating.toFixed(1);
 };
 
-export const getRandomComments = () => {
+const getRandomComments = () => {
   const quantity = Math.floor(Math.random() * MAX_COMMENT);
   const list = [];
 
@@ -88,4 +111,56 @@ export const getRandomComments = () => {
   }
 
   return list;
+};
+
+export const getCardsData = (quantity: number): Data => {
+  const data: Data = [];
+
+  for (let i = 0; i < quantity; i++) {
+    const id = getRandomID();
+    const poster = getRandomItem(POSTERS);
+    const title = getRandomItem(TITLES);
+    const origTitle = getRandomItem(TITLES);
+    const desc = getDesc();
+    const shortDesc = getShortDesc(desc);
+    const genres = getRandomList(GENRES, MIN_GENRES, MAX_GENRES);
+    const releaseDate = getRandomDate();
+    const runtime = getRandomQuantity(MIN_DURATION, MAX_DURATION);
+    const rating = getRandomRating();
+    const comments = getRandomComments();
+    const isInWatchList = getRandomQuantity(0, 1) > 0.5;
+    const isWatched = getRandomQuantity(0, 1) > 0.5;
+    const isFavorite = getRandomQuantity(0, 1) > 0.5;
+    const watchedDate = isWatched ? getRandomDate(WATCHED_RANDOM_DATE_PARAMS) : null;
+    const ageRating = getRandomItem(Object.keys(AGE_RATINGS));
+    const country = getRandomItem(COUNTRIES);
+    const director = getRandomItem(NAMES);
+    const writers = getRandomList(NAMES, MIN_WRITERS_NAMES, MAX_WRITERS_NAMES);
+    const actors = getRandomList(NAMES, MIN_ACTORS_NAMES, MAX_ACTORS_NAMES);
+
+    data.push({
+      id,
+      poster,
+      title,
+      origTitle,
+      desc,
+      shortDesc,
+      genres,
+      releaseDate,
+      runtime,
+      rating,
+      ageRating,
+      comments,
+      country,
+      director,
+      writers,
+      actors,
+      isInWatchList,
+      isWatched,
+      isFavorite,
+      watchedDate
+    });
+  }
+
+  return data;
 };

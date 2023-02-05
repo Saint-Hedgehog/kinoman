@@ -8,7 +8,24 @@ export const MIN_DURATION = 60;
 export const MAX_DURATION = 180;
 export const MIN_GENRES = 1;
 export const MAX_GENRES = 3;
+export const MIN_WRITERS_NAMES = 2;
+export const MAX_WRITERS_NAMES = 5;
+export const MIN_ACTORS_NAMES = 5;
+export const MAX_ACTORS_NAMES = 10;
 export const RANDOM_COMMENTS_DATE_PARAMS = { yearsOffset: 5 };
+export const WATCHED_RANDOM_DATE_PARAMS = {
+  yearsOffset: 2,
+  monthsOffset: 3,
+  daysOffset: 3
+};
+
+export const AGE_RATINGS = {
+  '0+': 'General audiences',
+  '6+': 'Parental guidance',
+  '12+': 'Parents strongly cautioned',
+  '16+': 'Restricted',
+  '18+': 'No One 17 & Under Admitted',
+};
 
 export const POSTERS = [
   'made-for-each-other.png',
