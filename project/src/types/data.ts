@@ -6,7 +6,7 @@ export type Comments = {
   date: Date;
 }[]
 
-export type Data = {
+export type Film = {
   id: string;
   poster: string;
   title: string;
@@ -27,4 +27,6 @@ export type Data = {
   isWatched: boolean;
   isFavorite: boolean;
   watchedDate: Date | null;
-}[]
+}
+
+export type Data = Film[];

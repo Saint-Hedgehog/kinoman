@@ -1,12 +1,17 @@
+import React from 'react';
 import { FilmsClass, FilmTitle } from '../../../const';
-import { films } from '../../../mock/films';
+import { Data } from '../../../types/data';
 import FilmsList from './films-list/films-list';
 
-const Films: React.FC = (): JSX.Element => (
+type FilmsProps = {
+  films: Data;
+}
+
+const Films: React.FC<FilmsProps> = ({ films }): JSX.Element => (
   <section className="films">
-    <FilmsList films={films} filmsTitle={FilmTitle.All} filmsClass={FilmsClass.FilmList} rating={false} comment={false}/>
-    <FilmsList films={films} filmsTitle={FilmTitle.Rated} filmsClass={FilmsClass.FilmListExtra} rating comment={false}/>
-    <FilmsList films={films} filmsTitle={FilmTitle.Commented} filmsClass={FilmsClass.FilmListExtra} comment rating={false}/>
+    <FilmsList films={films} filmsTitle={FilmTitle.All} filmsClass={FilmsClass.FilmList} isRating={false} isComment={false} />
+    <FilmsList films={films} filmsTitle={FilmTitle.Rated} filmsClass={FilmsClass.FilmListExtra} isRating isComment={false} />
+    <FilmsList films={films} filmsTitle={FilmTitle.Commented} filmsClass={FilmsClass.FilmListExtra} isComment isRating={false} />
   </section>
 );
 

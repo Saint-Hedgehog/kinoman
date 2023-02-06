@@ -1,25 +1,28 @@
 import React from 'react';
-import { Film } from '../../../../../types/film';
+import { Film } from '../../../../../types/data';
+import { getDuration } from '../../../../../utils';
 
 type FilmCardProps = {
   film: Film;
 }
 
-const FilmCard: React.FC<FilmCardProps> = ({film}): JSX.Element => {
-  const { title, rating, year, duration, genre, poster, description, comments } = film;
+const FilmCard: React.FC<FilmCardProps> = ({ film }): JSX.Element => {
+  const { title, rating, releaseDate, runtime, genres, poster, shortDesc, comments } = film;
+
+  const formatedFilmDuration = getDuration(runtime);
 
   return (
     <article className="film-card">
       <h3 className="film-card__title">{title}</h3>
       <p className="film-card__rating">{rating}</p>
       <p className="film-card__info">
-        <span className="film-card__year">{year}</span>
-        <span className="film-card__duration">{duration}</span>
-        <span className="film-card__genre">{genre}</span>
+        <span className="film-card__year">{releaseDate.getFullYear()}</span>
+        <span className="film-card__duration">{formatedFilmDuration}</span>
+        <span className="film-card__genre">{genres[0]}</span>
       </p>
-      <img src={poster} alt="" className="film-card__poster" />
-      <p className="film-card__description">{description}</p>
-      <a className="film-card__comments">{comments} comments</a>
+      <img src={`./images/posters/${poster}`} alt={`The poster of the film '${title}'`} className="film-card__poster" />
+      <p className="film-card__description">{shortDesc}</p>
+      <a className="film-card__comments">{comments.length} comments</a>
       <form className="film-card__controls">
         <button className="film-card__controls-item button film-card__controls-item--add-to-watchlist">Add to watchlist</button>
         <button className="film-card__controls-item button film-card__controls-item--mark-as-watched">Mark as watched</button>

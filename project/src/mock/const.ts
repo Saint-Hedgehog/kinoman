@@ -4,7 +4,7 @@ export const DEFAULT_MONTHS_OFFSET = 12;
 export const DEFAULT_DAYS_OFFSET = 31;
 export const MAX_RATING = 10;
 export const MAX_COMMENT = 5;
-export const MIN_DURATION = 60;
+export const MIN_DURATION = 10;
 export const MAX_DURATION = 180;
 export const MIN_GENRES = 1;
 export const MAX_GENRES = 3;
@@ -17,14 +17,6 @@ export const WATCHED_RANDOM_DATE_PARAMS = {
   yearsOffset: 2,
   monthsOffset: 3,
   daysOffset: 3
-};
-
-export const AGE_RATINGS = {
-  '0+': 'General audiences',
-  '6+': 'Parental guidance',
-  '12+': 'Parents strongly cautioned',
-  '16+': 'Restricted',
-  '18+': 'No One 17 & Under Admitted',
 };
 
 export const POSTERS = [
@@ -105,6 +97,13 @@ export const COUNTRIES = [
   'Nepal',
 ];
 
+export const AGE_RATINGS = {
+  '0+': 'General audiences',
+  '6+': 'Parental guidance',
+  '12+': 'Parents strongly cautioned',
+  '16+': 'Restricted',
+  '18+': 'No One 17 & Under Admitted',
+};
 
 export const EMOJIS = [
   'smile',

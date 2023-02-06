@@ -60,7 +60,6 @@ const getShortDesc = (desc: string): string => {
 };
 
 const getRandomList = (list: string[], min: number, max: number): string[] => {
-
   const quantity = getRandomQuantity(min, max);
   const newList = new Set<string>();
 

@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import { Films } from '../../../../types/film';
 import FilmCard from './film-card/film-card';
 import { FilmsClass, FILM_CARD_COUNT_ON_PAGE, FILM_FILTRED_BY_COMMENT, FILM_FILTRED_BY_RATING, ZERO } from '../../../../const';
+import { Data } from '../../../../types/data';
 
 type FilmListProps = {
-  films: Films;
+  films: Data;
   filmsTitle: string;
   filmsClass: string;
-  rating: boolean;
-  comment: boolean;
+  isRating: boolean;
+  isComment: boolean;
 }
 
-const FilmList: React.FC<FilmListProps> = ({ films, filmsTitle, filmsClass, rating = true, comment = true }): JSX.Element => {
+const FilmList: React.FC<FilmListProps> = ({ films, filmsTitle, filmsClass, isRating = true, isComment = true }): JSX.Element => {
   const isFilmsClassStyle = filmsClass === FilmsClass.FilmList;
   const isFilmsExtraClassStyle = filmsClass === FilmsClass.FilmListExtra;
   const sectionClass = classNames({ 'films-list': isFilmsClassStyle, 'films-list--extra': isFilmsExtraClassStyle });
@@ -25,7 +25,7 @@ const FilmList: React.FC<FilmListProps> = ({ films, filmsTitle, filmsClass, rati
   const filtredFilmsByRating = [...films].sort((a, b) => b.rating - a.rating);
   const filmsFiltredByRating = filtredFilmsByRating.slice(ZERO, FILM_FILTRED_BY_RATING);
 
-  const filtredFilmsByComment = [...films].sort((a, b) => b.comments - a.comments);
+  const filtredFilmsByComment = [...films].sort((a, b) => b.comments.length - a.comments.length);
   const filmsFiltredByComment = filtredFilmsByComment.slice(ZERO, FILM_FILTRED_BY_COMMENT);
 
   const handleShowMoreCLick = () => {
@@ -44,13 +44,13 @@ const FilmList: React.FC<FilmListProps> = ({ films, filmsTitle, filmsClass, rati
           ))
         }
         {
-          filmsClass === FilmsClass.FilmListExtra && rating &&
+          filmsClass === FilmsClass.FilmListExtra && isRating &&
           filmsFiltredByRating.map((film) => (
             <FilmCard key={film.id} film={film} />
           ))
         }
         {
-          filmsClass === FilmsClass.FilmListExtra && comment &&
+          filmsClass === FilmsClass.FilmListExtra && isComment &&
           filmsFiltredByComment.map((film) => (
             <FilmCard key={film.id} film={film} />
           ))
