@@ -15,3 +15,5 @@ export const getDuration = (minutes: number): string => {
   }
   return h + m;
 };
+
+export const getReleaseDate = (date: Date): string => dayjs(date).format('DD MMMM YYYY');
