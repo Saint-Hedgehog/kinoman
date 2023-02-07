@@ -7,6 +7,7 @@ import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import StatisticPage from '../../pages/statistic/statistic-page';
 import PrivateRoute from '../private-route/private-route';
 import { Data } from '../../types/data';
+import FilmDetails from '../film-details/film-details';
 
 type AppProps = {
   films: Data;
@@ -17,6 +18,10 @@ const App: React.FC<AppProps> = ({ films }): JSX.Element => (
     <BrowserRouter>
       <Routes>
         <Route path={AppRoute.Main} element={<MainPage films={films} />} />
+        {/* <Route path={AppRoute.Film}>
+          <Route path={AppRoute.Details} element={<FilmDetails />} />
+        </Route> */}
+        <Route path={AppRoute.Details} element={<FilmDetails films={films} />} />
         <Route path={AppRoute.Stats} element={
           <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
             <StatisticPage />

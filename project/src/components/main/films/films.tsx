@@ -18,7 +18,7 @@ const Films: React.FC<FilmsProps> = ({ films }): JSX.Element => (
           <FilmsList films={films} filmsTitle={FilmTitle.Commented} filmsClass={FilmsClass.FilmListExtra} isComment isRating={false} />
         </>
         :
-        <section className='films-list'>
+        <section className={FilmsClass.FilmList}>
           <h2 className='films-list__title'>There are no movies in our database</h2>
         </section>
     }

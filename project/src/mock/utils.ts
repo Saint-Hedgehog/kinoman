@@ -66,7 +66,7 @@ const getRandomList = (list: string[], min: number, max: number): string[] => {
   while (newList.size < quantity) {
     newList.add(getRandomItem(list));
   }
-
+  // .join(', ')
   return Array.from(newList);
 };
 

@@ -35,6 +35,7 @@ const FilmList: React.FC<FilmListProps> = ({ films, filmsTitle, filmsClass, isRa
   return (
     <section className={sectionClass}>
       <h2 className={titleClass}>{filmsTitle}</h2>
+
       <div className="films-list__container">
         {
           filmsClass === FilmsClass.FilmList &&

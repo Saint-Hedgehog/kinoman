@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AppRoute } from '../../../../../const';
 import { Film } from '../../../../../types/data';
 import { getDuration } from '../../../../../utils';
 
@@ -7,9 +9,15 @@ type FilmCardProps = {
 }
 
 const FilmCard: React.FC<FilmCardProps> = ({ film }): JSX.Element => {
+  const navigate = useNavigate();
   const { title, rating, releaseDate, runtime, genres, poster, shortDesc, comments } = film;
 
   const formatedFilmDuration = getDuration(runtime);
+
+  const handleShowFilmDetailsCLick = () => {
+    // navigate(`${AppRoute.Film}${AppRoute.Details}`);
+    navigate(AppRoute.Details);
+  };
 
   return (
     <article className="film-card">
@@ -20,7 +28,12 @@ const FilmCard: React.FC<FilmCardProps> = ({ film }): JSX.Element => {
         <span className="film-card__duration">{formatedFilmDuration}</span>
         <span className="film-card__genre">{genres[0]}</span>
       </p>
-      <img src={`./images/posters/${poster}`} alt={`The poster of the film '${title}'`} className="film-card__poster" />
+      <img
+        src={`./images/posters/${poster}`}
+        alt={`The poster of the film '${title}'`}
+        className="film-card__poster"
+        onClick={handleShowFilmDetailsCLick}
+      />
       <p className="film-card__description">{shortDesc}</p>
       <a className="film-card__comments">{comments.length} comments</a>
       <form className="film-card__controls">

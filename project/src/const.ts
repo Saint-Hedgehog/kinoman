@@ -8,6 +8,9 @@ export enum AppRoute {
   Main = '/',
   Stats = '/stats',
   Login = '/login',
+  // Film = '/film',
+  // Details = ':id/*',
+  Details = 'details',
   NotFound = '*',
 }
 
