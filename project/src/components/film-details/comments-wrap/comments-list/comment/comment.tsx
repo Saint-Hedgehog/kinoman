@@ -1,6 +1,6 @@
 import React from 'react';
 import { CommentType } from '../../../../../types/data';
-import { getCommentDate } from '../../../../../utils';
+import { getRelativeDate } from '../../../../../utils';
 
 
 type CommentProps = {
@@ -9,7 +9,7 @@ type CommentProps = {
 
 const Comment: React.FC<CommentProps> = ({ comment }): JSX.Element => {
   const {author, text, date, emoji} = comment;
-  const commentDay = getCommentDate(date);
+  const commentDay = getRelativeDate(date);
 
   return (
     <li className="film-details__comment">

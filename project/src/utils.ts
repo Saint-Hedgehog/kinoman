@@ -1,6 +1,8 @@
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
+import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(duration);
+dayjs.extend(relativeTime);
 
 export const getDuration = (minutes: number): string => {
   const filmDuration = dayjs.duration(minutes, 'minutes');
@@ -17,4 +19,4 @@ export const getDuration = (minutes: number): string => {
 };
 
 export const getReleaseDate = (date: Date): string => dayjs(date).format('DD MMMM YYYY');
-export const getCommentDate = (date: Date): string => dayjs(date).format('YYYY/MM/DD HH:mm');
+export const getRelativeDate = (date: Date): string => dayjs(date).fromNow();
