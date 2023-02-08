@@ -17,3 +17,4 @@ export const getDuration = (minutes: number): string => {
 };
 
 export const getReleaseDate = (date: Date): string => dayjs(date).format('DD MMMM YYYY');
+export const getCommentDate = (date: Date): string => dayjs(date).format('YYYY/MM/DD HH:mm');

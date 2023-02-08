@@ -3,6 +3,7 @@ export const FILM_FILTRED_BY_RATING = 2;
 export const FILM_FILTRED_BY_COMMENT = 2;
 export const ZERO = 0;
 export const TOTAL_FILMS = 27;
+export const KEY_ESCAPE = 'Escape';
 
 export enum AppRoute {
   Main = '/',

@@ -1,11 +1,27 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoute } from '../../../const';
+import { KEY_ESCAPE } from '../../../const';
 
 const Close: React.FC = (): JSX.Element => {
   const navigate = useNavigate();
 
-  const handleCloseCLick = () => {
-    navigate(AppRoute.Main);
+  useEffect(() => {
+    const onKeyDownEsc = (evt: KeyboardEvent) => {
+      if (evt.key === KEY_ESCAPE) {
+        evt.preventDefault();
+        navigate(-1);
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDownEsc);
+    return () => {
+      document.removeEventListener('keydown', onKeyDownEsc);
+    };
+  });
+
+  const handleCloseCLick = (evt: React.MouseEvent<HTMLButtonElement>) => {
+    evt.preventDefault();
+    navigate(-1);
   };
 
   return (

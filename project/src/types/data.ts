@@ -1,10 +1,12 @@
-export type Comments = {
+export type CommentType = {
   id: string;
   author: string;
   text: string;
   emoji: string;
   date: Date;
-}[]
+}
+
+export type Comments = CommentType[];
 
 export type Film = {
   id: string;

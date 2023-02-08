@@ -19,7 +19,7 @@ const FilmDetails: React.FC<FilmDetailsProps> = ({ films }): JSX.Element => (
       </div>
 
       <div className="form-details__bottom-container">
-        <CommentsWrap />
+        <CommentsWrap films={films}/>
       </div>
     </form>
   </section>

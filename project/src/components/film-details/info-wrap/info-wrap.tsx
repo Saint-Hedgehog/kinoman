@@ -57,7 +57,7 @@ const InfoWrap: React.FC<InfoWrapProps> = ({ films }): JSX.Element => {
             <td className="film-details__cell">{country}</td>
           </tr>
           <tr className="film-details__row">
-            <td className="film-details__term">Genres</td>
+            <td className="film-details__term">Genre{genres.length > 1 ? 's' : ''}</td>
             <td className="film-details__cell">
               {genres.map((genre) => <span key={genre} className="film-details__genre">{genre}</span>)}
             </td>
