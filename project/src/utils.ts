@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import { FIRST_LETTER, START_INDEX } from './const';
 dayjs.extend(duration);
 dayjs.extend(relativeTime);
 
@@ -20,3 +21,7 @@ export const getDuration = (minutes: number): string => {
 
 export const getReleaseDate = (date: Date): string => dayjs(date).format('DD MMMM YYYY');
 export const getRelativeDate = (date: Date): string => dayjs(date).fromNow();
+
+export function capitalizeFirstLetter(text: string): string {
+  return text.charAt(FIRST_LETTER).toUpperCase() + text.slice(START_INDEX);
+}

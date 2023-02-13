@@ -21,7 +21,7 @@ const App: React.FC = (): JSX.Element => {
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
-          <Route path={AppRoute.Main} element={<MainPage films={films} />} />
+          <Route path={AppRoute.Main} element={<MainPage />} />
           {/* <Route path={AppRoute.Film}>
           <Route path={AppRoute.Details} element={<FilmDetails />} />
         </Route> */}

@@ -2,7 +2,7 @@ import { store } from '../store/store';
 import { Film } from './data';
 
 export type FilmData = {
-  filter: string;
+  activeFilter: string;
   films: [] | Film[];
 }
 

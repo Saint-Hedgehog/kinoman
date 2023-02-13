@@ -2,6 +2,8 @@ export const FILM_CARD_COUNT_ON_PAGE = 5;
 export const FILM_FILTRED_BY_RATING = 2;
 export const FILM_FILTRED_BY_COMMENT = 2;
 export const ZERO = 0;
+export const FIRST_LETTER = 0;
+export const START_INDEX = 1;
 export const TOTAL_FILMS = 27;
 export const KEY_ESCAPE = 'Escape';
 
@@ -23,8 +25,8 @@ export enum FilmTitle {
 }
 
 export enum FilmsClass {
- FilmList = 'films-list',
- FilmListExtra = 'films-list--extra'
+  FilmList = 'films-list',
+  FilmListExtra = 'films-list--extra'
 }
 
 export enum AuthorizationStatus {
@@ -60,23 +62,12 @@ export enum FilterType {
   Favorites = 'favorite',
 }
 
-export const FILTERS = {
-  [FilterType.All]: {
-    name: 'All movies'
-  },
-  [FilterType.Watchlist]: {
-    propName: 'isInWatchList',
-    name: 'Watchlist'
-  },
-  [FilterType.History]: {
-    propName: 'isWatched',
-    name: 'History'
-  },
-  [FilterType.Favorites]: {
-    propName: 'isFavorite',
-    name: 'Favorites'
-  },
-};
+export const filters = [
+  FilterType.All,
+  FilterType.Watchlist,
+  FilterType.History,
+  FilterType.Favorites,
+] as const;
 
 export const SortType = {
   DEFAULT: 'default',
