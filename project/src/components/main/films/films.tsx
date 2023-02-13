@@ -13,7 +13,7 @@ const Films: React.FC<FilmsProps> = ({ films }): JSX.Element => (
       films.length !== 0
         ?
         <>
-          <FilmsList films={films} filmsTitle={FilmTitle.All} filmsClass={FilmsClass.FilmList} isRating={false} isComment={false} />
+          <FilmsList films={films} filmsTitle={FilmTitle.All} filmsClass={FilmsClass.FilmList} />
           <FilmsList films={films} filmsTitle={FilmTitle.Rated} filmsClass={FilmsClass.FilmListExtra} isRating isComment={false} />
           <FilmsList films={films} filmsTitle={FilmTitle.Commented} filmsClass={FilmsClass.FilmListExtra} isComment isRating={false} />
         </>

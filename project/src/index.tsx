@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 import App from './components/app/app';
-import { TOTAL_FILMS } from './const';
-import { getCardsData } from './mock/utils';
+import { store } from './store/store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
-const films = getCardsData(TOTAL_FILMS);
-
 root.render(
   <React.StrictMode>
-    <App films={films} />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
 );

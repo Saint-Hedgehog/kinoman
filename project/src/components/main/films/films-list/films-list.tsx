@@ -8,11 +8,11 @@ type FilmListProps = {
   films: Data;
   filmsTitle: string;
   filmsClass: string;
-  isRating: boolean;
-  isComment: boolean;
+  isRating?: boolean;
+  isComment?: boolean;
 }
 
-const FilmList: React.FC<FilmListProps> = ({ films, filmsTitle, filmsClass, isRating = true, isComment = true }): JSX.Element => {
+const FilmList: React.FC<FilmListProps> = ({ films, filmsTitle, filmsClass, isRating, isComment }): JSX.Element => {
   const isFilmsClassStyle = filmsClass === FilmsClass.FilmList;
   const isFilmsExtraClassStyle = filmsClass === FilmsClass.FilmListExtra;
   const sectionClass = classNames({ 'films-list': isFilmsClassStyle, 'films-list--extra': isFilmsExtraClassStyle });

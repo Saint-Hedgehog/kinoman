@@ -11,6 +11,7 @@ const InfoWrap: React.FC<InfoWrapProps> = ({ films }): JSX.Element => {
 
   const formatedReleaseDate = getReleaseDate(releaseDate);
   const formatedFilmDuration = getDuration(runtime);
+
   return (
     <div className="film-details__info-wrap">
       <div className="film-details__poster">
