@@ -55,11 +55,17 @@ export const USER_STATUSES = [
   },
 ];
 
+// export enum FilterType {
+//   All = 'all',
+//   Watchlist = 'watchlist',
+//   History = 'watched',
+//   Favorites = 'favorite',
+// }
 export enum FilterType {
   All = 'all',
-  Watchlist = 'watchlist',
-  History = 'watched',
-  Favorites = 'favorite',
+  Watchlist = 'isInWatchList',
+  History = 'isWatched',
+  Favorites = 'isFavorite',
 }
 
 export const filters = [
@@ -67,6 +73,13 @@ export const filters = [
   FilterType.Watchlist,
   FilterType.History,
   FilterType.Favorites,
+] as const;
+
+export const filterNames = [
+  'all',
+  'watchlist',
+  'history',
+  'favorites',
 ] as const;
 
 export const SortType = {

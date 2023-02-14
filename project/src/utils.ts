@@ -25,3 +25,4 @@ export const getRelativeDate = (date: Date): string => dayjs(date).fromNow();
 export function capitalizeFirstLetter(text: string): string {
   return text.charAt(FIRST_LETTER).toUpperCase() + text.slice(START_INDEX);
 }
+

@@ -1,8 +1,9 @@
+import { FilterType } from '../const';
 import { store } from '../store/store';
 import { Film } from './data';
 
 export type FilmData = {
-  activeFilter: string;
+  activeFilter: FilterType;
   films: [] | Film[];
 }
 
