@@ -15,9 +15,9 @@ const MainPage: React.FC = (): JSX.Element => {
   const watched = films.filter((film) => film.isWatched);
   const favorite = films.filter((film) => film.isFavorite);
 
-  const watchListCount = watchList.length;
-  const watchedCount = watched.length;
-  const favoriteCount = favorite.length;
+  // const watchListCount = watchList.length;
+  // const watchedCount = watched.length;
+  // const favoriteCount = favorite.length;
 
   return (
     <>
@@ -38,13 +38,27 @@ const MainPage: React.FC = (): JSX.Element => {
         {
           activeFilter === FilterType.Watchlist &&
           <>
-            <Nav activeFilter={activeFilter} watchListCount={watchListCount}/>
+            <Nav activeFilter={activeFilter} />
             <Sort />
             <Films films={watchList} />
           </>
         }
-        {activeFilter === FilterType.History && <Films films={watched} />}
-        {activeFilter === FilterType.Favorites && <Films films={favorite} />}
+        {
+          activeFilter === FilterType.History &&
+          <>
+            <Nav activeFilter={activeFilter} />
+            <Sort />
+            <Films films={watched} />
+          </>
+        }
+        {
+          activeFilter === FilterType.Favorites &&
+          <>
+            <Nav activeFilter={activeFilter} />
+            <Sort />
+            <Films films={favorite} />
+          </>
+        }
       </main>
 
       <Footer />

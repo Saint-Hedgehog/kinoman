@@ -7,10 +7,9 @@ import { capitalizeFirstLetter } from '../../../utils';
 
 type NavProps = {
   activeFilter: FilterType;
-  watchListCount?: number;
 }
 
-const Nav: React.FC<NavProps> = ({ activeFilter, watchListCount }): JSX.Element => {
+const Nav: React.FC<NavProps> = ({ activeFilter }): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const currentPath = useLocation().pathname;
@@ -34,7 +33,7 @@ const Nav: React.FC<NavProps> = ({ activeFilter, watchListCount }): JSX.Element 
                 filter === FilterType.All ?
                   `${capitalizeFirstLetter(filterNames[index])} movies` :
                   <>
-                    {capitalizeFirstLetter(filterNames[index])} <span className="main-navigation__item-count">{watchListCount}</span>
+                    {capitalizeFirstLetter(filterNames[index])} <span className="main-navigation__item-count">14</span>
                   </>
               }
             </Link>)

@@ -55,12 +55,6 @@ export const USER_STATUSES = [
   },
 ];
 
-// export enum FilterType {
-//   All = 'all',
-//   Watchlist = 'watchlist',
-//   History = 'watched',
-//   Favorites = 'favorite',
-// }
 export enum FilterType {
   All = 'all',
   Watchlist = 'isInWatchList',
